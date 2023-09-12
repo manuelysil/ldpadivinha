@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Cálculo da área </title>
+   <link rel="stylesheet" href="lindeza.css">
+</head>
+
+<body>
+   Escolha a Figura Geométrica: <br>
+   <input type="radio" name="rdbFigura" value="quadrado" onclick="adcElemento_q()">Quadrado
+   <input type="radio" name="rdbFigura" value="círculo" onclick="adcElemento_c()">Círculo
+   <input type="radio" name="rdbFigura" value="triângulo" onclick="adcElemento_t()">Triângulo
+   <br>
+   <p></p>
+
+   <script>
+      let figura = document.querySelector('radio');
+      let exibir = document.querySelector('p');
+      let fig = "";
+      exibir.innerHTML = "Figuras: " + fig;
+
+      let elementoAtual = null;
+
+      function checar() {
+         let botoes = document.getElementsByName("rdbFigura");
+
+         for (let i in botoes) {
+            if (botoes[i].checked) {
+               exibir.innerHTML = "Figura = " + botoes[i].value;
+            }
+         }
+         return botoes[i].value;
+      }
+
+      function removerElementoAtual() {
+         if (elementoAtual) {
+            elementoAtual.remove();
+            elementoAtual = null;
+         }
+      }
+
+      function adcElemento_q() {
+         removerElementoAtual();
+         let imagem = document.createElement("img");
+         let formula = document.createElement("label");
+         let texto = document.createElement("label");
+         let lado = document.createElement("input");
+         let quebra = document.createElement("br");
+         let botao = document.createElement("button");
+         imagem.src = "img/quadrado.jpg";
+         formula.innerHTML = "<br>área = lado * lado"
+         texto.innerHTML = "Lado : ";
+         lado.type = "number";
+         lado.id = "vl";
+         botao.innerHTML = "Calcular";
+         botao.addEventListener("click", area_quadrado);
+
+         let div = document.createElement("div");
+         div.appendChild(imagem);
+         div.appendChild(formula);
+         div.appendChild(quebra);
+         div.appendChild(texto);
+         div.appendChild(lado);
+         div.appendChild(botao);
+
+         elementoAtual = div;
+         document.body.appendChild(div);
+      }
+
+      function area_quadrado() {
+         let vl_lado = document.getElementById("vl").value;
+         const area = document.createElement("h3");
+         document.body.appendChild(area);
+         area.innerHTML = "Área = " + vl_lado * vl_lado;
+      }
+
+      function adcElemento_c() {
+         removerElementoAtual();
+         let imagem = document.createElement("img");
+         let formula = document.createElement("label");
+         let texto = document.createElement("label");
+         let raio = document.createElement("input");
+         let quebra = document.createElement("br");
+         let botao = document.createElement("button");
+         imagem.src = "img/circulo.png";
+         formula.innerHTML = "<br>área = π * 2²"
+         texto.innerHTML = "Raio : ";
+         raio.type = "number";
+         raio.id = "raio";
+         botao.innerHTML = "Calcular";
+         botao.addEventListener("click", area_circulo);
+
+         let div = document.createElement("div");
+         div.appendChild(imagem);
+         div.appendChild(formula);
+         div.appendChild(quebra);
+         div.appendChild(texto);
+         div.appendChild(raio);
+         div.appendChild(botao);
+
+         elementoAtual = div;
+         document.body.appendChild(div);
+      }
+
+      function area_circulo() {
+         let raio = document.getElementById("raio").value;
+         const area = document.createElement("h3");
+         document.body.appendChild(area);
+         area.innerHTML = "Área = " + 3.14 * (raio * raio);
+      }
+
+      function adcElemento_t() {
+         removerElementoAtual();
+         let imagem = document.createElement("img");
+         let formula = document.createElement("label");
+         let texto = document.createElement("label");
+         let base = document.createElement("input");
+         let altura = document.createElement("input");
+         let quebra = document.createElement("br");
+         let botao = document.createElement("button");
+         imagem.src = "img/triangulo.jpg";
+         formula.innerHTML = "<br>área = Base * altura/2"
+         texto.innerHTML = "Triângulo : ";
+         base.type = "number";
+         altura.type = "number";
+         base.id = "base";
+         altura.id = "altura";
+         botao.innerHTML = "Calcular";
+         botao.addEventListener("click", area_triangulo);
+
+         let div = document.createElement("div");
+         div.appendChild(imagem);
+         div.appendChild(formula);
+         div.appendChild(quebra);
+         div.appendChild(texto);
+         div.appendChild(base);
+         div.appendChild(altura);
+         div.appendChild(botao);
+
+         elementoAtual = div;
+         document.body.appendChild(div);
+      }
+
+      function area_triangulo() {
+         let base = document.getElementById("base").value;
+         let altura = document.getElementById("altura").value;
+         const area = document.createElement("h3");
+         document.body.appendChild(area);
+         area.innerHTML = "Área = " + (base * altura)/2;
+      }
+   </script>
+</body>
+
+</html>
