@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: aliceblue;
+ }
+ 
+ body {
+    font-family: Arial, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+ }
+ 
+ h1 {
+    font-family: 'Rancho', cursive;
+    font-size: 3.5rem;
+    font-weight: 400;
+ }
+ #area-logo{
+   width: 5px;
+   margin-bottom: 5px;
+   font-weight: 100;
+ }
+ 
+ .main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+ }
+ 
+ .game {
+    box-shadow: 10px 5px 15px #6e8aa5;
+ }
+ 
+ .game,
+ form {
+    background-color: #4a6c8b;
+    padding: 2.0rem;
+    width: 200;
+    max-width: 200;
+    font-weight: 200;
+    margin: 200;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+ }
+ 
+ .game>div {
+    padding: 0.5rem;
+ }
+ 
+ .form input,
+ .form label,
+ .form button {
+    margin-top: 1rem;
+ }
+ 
+ #area-rodapé {
+    font-size: initial;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    background-color: #243c52;
+    clear: both;
+ }
+ 
+ .form input,
+ .form button {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.5rem;
+    color: #000000;
+ }
+ 
+ .form button {
+    cursor: pointer;
+    color: black;
+ }
+ 
+ .form button:hover {
+    filter: opacity(0.8);
+ }
+
+
+img{
+   height: 200px;
+   width: 200px;
+}
+ 
+ @media screen and (max-width: 200px) {
+    h1 {
+       font-size: 2.0rem;
+    }
+    
+    .game,
+    form {
+       padding: 1rem;
+    }
+ }
+ 
